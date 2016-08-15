@@ -1,0 +1,25 @@
+{
+  "name": "scrixel-collision",
+  "version": "1.0.0",
+  "description": "Collision detection library for game development",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/logiclogue/scrixel-collision.git"
+  },
+  "keywords": [
+    "collision",
+    "detection",
+    "game",
+    "development"
+  ],
+  "author": "Jordan Lord",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/logiclogue/scrixel-collision/issues"
+  },
+  "homepage": "https://github.com/logiclogue/scrixel-collision#readme"
+}
