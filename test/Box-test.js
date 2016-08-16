@@ -3,25 +3,19 @@ var Box = require('../src/Box');
 
 
 describe('Box', function () {
-    var boxA;
-    var boxB;
+    var box;
 
     describe('#constructor', function () {
-        boxA = new Box(3, 2);
-        boxB = new Box(2, 2);
+        box = new Box(3, 2);
 
         it('should set correct x and y values', function () {
-            assert.equal(boxA.x, 0);
-            assert.equal(boxA.y, 0);
-            assert.equal(boxB.x, 0);
-            assert.equal(boxB.y, 0);
+            assert.equal(box.x, 0);
+            assert.equal(box.y, 0);
         });
 
         it('should set correct width and height', function () {
-            boxA.width = 3;
-            boxA.height = 2;
-            boxB.width = 2;
-            boxB.height = 2;
+            box.width = 3;
+            box.height = 2;
         });
     });
 });
