@@ -17,7 +17,7 @@ describe('Group', function () {
         });
     });
 
-    describe('#addBox()', function () {
+    describe('#addBox(Box)', function () {
         it('should add a box', function () {
             var returnVal = group.addBox(boxA);
 
