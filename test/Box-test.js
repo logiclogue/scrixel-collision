@@ -5,7 +5,7 @@ var Box = require('../src/Box');
 describe('Box', function () {
     var box;
 
-    describe('#constructor', function () {
+    describe('#constructor()', function () {
         box = new Box(3, 2);
 
         it('should set correct x and y values', function () {
