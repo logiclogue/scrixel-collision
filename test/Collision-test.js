@@ -37,26 +37,11 @@ describe('Collision', function () {
     });
 
     describe('#isTouching()', function () {
-        it('should return true when boxes are touching', function () {
-            boxA.x = -1;
-            boxA.y = -1;
+        it('should return true when boxes are touching', touching);
 
-            assert.equal(collision.isTouching(), true);
-        });
+        it('should return false when boxes are outside', outside);
 
-        it('should return false when boxes are outside', function () {
-            boxA.x = -10;
-            boxA.y = 10;
-
-            assert.equal(collision.isTouching(), false);
-        });
-
-        it('should return true when boxes are inside', function () {
-            boxA.x = 1;
-            boxA.y = 1;
-
-            assert.equal(collision.isTouching(), true);
-        });
+        it('should return true when boxes are inside', inside);
     });
     
     describe('#isNorth()', function () {
@@ -78,4 +63,26 @@ describe('Collision', function () {
     describe('#isInside()', function () {
 
     });
+
+
+    function touching() {
+        boxA.x = -1;
+        boxA.y = -1;
+
+        assert.equal(collision.isTouching(), true);
+    }
+
+    function outside() {
+        boxA.x = -10;
+        boxA.y = 10;
+
+        assert.equal(collision.isTouching(), false);
+    }
+
+    function inside() {
+        boxA.x = 1;
+        boxA.y = 1;
+
+        assert.equal(collision.isTouching(), true);
+    }
 });
