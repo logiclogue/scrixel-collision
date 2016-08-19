@@ -29,6 +29,11 @@ describe('Collision', function () {
         it('should throw error if boxes aren\'t passed', function () {
             assert.throws(Collision, ReferenceError);
         });
+
+        it('should assign passed boxes to boxA and boxB', function () {
+            assert.equal(collision.boxA, boxA);
+            assert.equal(collision.boxB, boxB);
+        });
     });
 
     describe('#isTouching()', function () {
