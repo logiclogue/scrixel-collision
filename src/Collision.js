@@ -19,17 +19,19 @@ function Collision(boxA, boxB) {
      * Returns true or false depending on whether the two boxes are touching.
      */
     proto_.isTouching = function () {
-        var boxAmaxX = this.boxA.x + this.boxA.width;
-        var boxAmaxY = this.boxA.y + this.boxA.height;
-        var boxBmaxX = this.boxB.x + this.boxB.width;
-        var boxBmaxY = this.boxB.y + this.boxB.height;
-
         if (this._isNorthOverlap() && this._isEastOverlap() &&
             this._isSouthOverlap() && this._isWestOverlap()) {
             return true;
         }
 
         return false;
+    };
+
+    /*
+     * Returns true if boxB is inside boxA.
+     */
+    proto_.isInside = function () {
+
     };
 
 
