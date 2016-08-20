@@ -39,8 +39,6 @@ function Collision(boxA, boxB) {
         var isSouth = boxAmax[1] <= boxBmax[1];
         var isWest = this.boxA.x >= this.boxB.x;
 
-        console.log(isNorth, isEast, isSouth, isWest);
-
         if (isNorth && isEast && isSouth && isWest) {
             return true;
         }
