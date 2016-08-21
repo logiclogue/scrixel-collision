@@ -11,6 +11,13 @@ function CollisionManager(groupA, groupB) {
 
     this.groupA = groupA;
     this.groupB = groupB;
+
+    this.onTouch = function () {};
+    this.onNorth = function () {};
+    this.onEast = function () {};
+    this.onSouth = function () {};
+    this.onWest = function () {};
+    this.onInside = function () {};
 }
 
 module.exports = CollisionManager;
