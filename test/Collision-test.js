@@ -7,8 +7,6 @@ var Collision = require('../src/Collision');
 describe('Collision', function () {
     var boxA = new Box(2, 2);
     var boxB = new Box(3, 4);
-    var groupA = new Group();
-    var groupB = new Group();
     var collision = new Collision(boxA, boxB);
 
     describe('#constructor(Box, Box)', function () {
