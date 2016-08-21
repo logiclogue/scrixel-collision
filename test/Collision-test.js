@@ -65,22 +65,26 @@ describe('Collision', function () {
     describe('#isNorth()', function () {
         it('should return true when boxB is entering through the north face',
         function () {
-            boxB.x = boxB.x = 0;
-            boxB.y = 10;
-            boxB.y = boxA.y + boxA.height - 1;
+            assert.equal(north(), true);
+        });
 
-            assert.equal(collision.isNorth(), true);
+        it('should return false for other faces', function () {
+            assert.equal(collision.isEast(), false);
+            assert.equal(collision.isSouth(), false);
+            assert.equal(collision.isWest(), false);
         });
     });
 
     describe('#isEast()', function () {
         it('should return true when boxB is entering through the east face',
         function () {
-            boxB.x = 10;
-            boxB.y = 0;
-            boxB.x = boxA.width - 1;
+            assert.equal(east(), true);
+        });
 
-            assert.equal(collision.isEast(), true);
+        it('should return false for other faces', function () {
+            assert.equal(collision.isSouth(), false);
+            assert.equal(collision.isWest(), false)
+            assert.equal(collision.isNorth(), false)
         });
     });
 
@@ -88,22 +92,26 @@ describe('Collision', function () {
     describe('#isSouth()', function () {
         it('should return true when boxB is entering through the south face',
         function () {
-            boxB.y = -10;
-            boxB.x = boxB.x = 0;
-            boxB.y = 1 - boxB.height;
+            assert.equal(south(), true);
+        });
 
-            assert.equal(collision.isSouth(), true);
+        it('should return false for other faces', function () {
+            assert.equal(collision.isWest(), false)
+            assert.equal(collision.isNorth(), false)
+            assert.equal(collision.isEast(), false)
         });
     });
 
     describe('#isWest()', function () {
         it('should return true when boxB is entering through the west face',
         function () {
-            boxB.x = -10;
-            boxB.y = boxB.y = 0;
-            boxB.x = 1 - boxB.width;
+            assert.equal(west(), true);
+        });
 
-            assert.equal(collision.isWest(), true);
+        it('should return false for other faces', function () {
+            assert.equal(collision.isNorth(), false)
+            assert.equal(collision.isEast(), false)
+            assert.equal(collision.isSouth(), false)
         });
     });
 
@@ -131,4 +139,37 @@ describe('Collision', function () {
             assert.equal(collision.isInside(), true);
         });
     });
+
+
+    function north() {
+        boxB.x = boxB.x = 0;
+        boxB.y = 10;
+        boxB.y = boxA.y + boxA.height - 1;
+
+        return collision.isNorth();
+    }
+
+    function east() {
+        boxB.x = 10;
+        boxB.y = 0;
+        boxB.x = boxA.width - 1;
+
+        return collision.isEast();
+    }
+
+    function south() {
+        boxB.y = -10;
+        boxB.x = boxB.x = 0;
+        boxB.y = 1 - boxB.height;
+
+        return collision.isSouth();
+    }
+
+    function west() {
+        boxB.x = -10;
+        boxB.y = boxB.y = 0;
+        boxB.x = 1 - boxB.width;
+
+        return collision.isWest();
+    }
 });
