@@ -27,11 +27,7 @@ function Collision(boxA, boxB) {
         var isSouth = this.boxA.y <= boxBmax[1];
         var isWest = this.boxA.x <= boxBmax[0];
 
-        if (isNorth && isEast && isSouth && isWest) {
-            return true;
-        }
-
-        return false;
+        return isNorth && isEast && isSouth && isWest;
     };
 
     /*
@@ -46,11 +42,7 @@ function Collision(boxA, boxB) {
         var isSouth = boxAmax[1] <= boxBmax[1];
         var isWest = this.boxA.x >= this.boxB.x;
 
-        if (isNorth && isEast && isSouth && isWest) {
-            return true;
-        }
-
-        return false;
+        return isNorth && isEast && isSouth && isWest;
     };
 
 
