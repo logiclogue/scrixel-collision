@@ -37,7 +37,6 @@ function Collision(boxA, boxB) {
         var isPrevious = this.boxB.prevY <= this.boxA.y + this.boxA.height;
         var isNow = this.boxB.y <= this.boxA.y + this.boxA.height;
 
-        console.log(!isPrevious, this.boxB.prevY, this.boxB.height, this.boxA.y);
         return !isPrevious && isNow && this.isTouching();
     };
 
