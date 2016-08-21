@@ -88,9 +88,9 @@ describe('Collision', function () {
     describe('#isSouth()', function () {
         it('should return true when boxB is entering through the south face',
         function () {
-            boxB.x = -10;
-            boxB.y = boxB.y = 0;
-            boxB.x = -1;
+            boxB.y = -10;
+            boxB.x = boxB.x = 0;
+            boxB.y = 1 - boxB.height;
 
             assert.equal(collision.isSouth(), true);
         });
@@ -101,7 +101,7 @@ describe('Collision', function () {
         function () {
             boxB.x = -10;
             boxB.y = boxB.y = 0;
-            boxB.x = 1;
+            boxB.x = 1 - boxB.width;
 
             assert.equal(collision.isWest(), true);
         });

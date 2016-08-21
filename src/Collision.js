@@ -34,8 +34,10 @@ function Collision(boxA, boxB) {
      * Returns true if boxB is colliding with boxA through its north face.
      */
     proto_.isNorth = function () {
-        var isPrevious = this.boxB.prevY <= this.boxA.y + this.boxA.height;
-        var isNow = this.boxB.y <= this.boxA.y + this.boxA.height;
+        var boxAmax = this.boxA.y + this.boxA.height;
+
+        var isPrevious = this.boxB.prevY <= boxAmax;
+        var isNow = this.boxB.y <= boxAmax;
 
         return !isPrevious && isNow && this.isTouching();
     };
@@ -44,21 +46,32 @@ function Collision(boxA, boxB) {
      * Returns true if boxB is colliding with boxA through its east face.
      */
     proto_.isEast = function () {
+        var boxAmax = this.boxA.x + this.boxA.width;
 
+        var isPrevious = this.boxB.prevX <= boxAmax;
+        var isNow = this.boxB.x <= boxAmax;
+
+        return !isPrevious && isNow && this.isTouching();
     };
 
     /*
      * Returns true if boxB is colliding with boxA through its south face.
      */
     proto_.isSouth = function () {
+        var isPrevious = this.boxB.prevY + this.boxB.height >= this.boxA.y;
+        var isNow = this.boxB.y + this.boxB.height >= this.boxA.y;
 
+        return !isPrevious && isNow && this.isTouching();
     };
 
     /*
      * Returns true if boxB is colliding with boxA through its west face.
      */
     proto_.isWest = function () {
+        var isPrevious = this.boxB.prevX + this.boxB.width >= this.boxA.x;
+        var isNow = this.boxB.x + this.boxB.width >= this.boxA.x;
 
+        return !isPrevious && isNow && this.isTouching();
     };
 
     /*
