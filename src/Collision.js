@@ -19,8 +19,15 @@ function Collision(boxA, boxB) {
      * Returns true or false depending on whether the two boxes are touching.
      */
     proto_.isTouching = function () {
-        if (this._isNorthOverlap() && this._isEastOverlap() &&
-            this._isSouthOverlap() && this._isWestOverlap()) {
+        var boxAmax = this._getMax(this.boxA);
+        var boxBmax = this._getMax(this.boxB);
+
+        var isNorth = boxAmax[1] >= this.boxB.y;
+        var isEast = boxAmax[0] >= this.boxB.x;
+        var isSouth = this.boxA.y <= boxBmax[1];
+        var isWest = this.boxA.x <= boxBmax[0];
+
+        if (isNorth && isEast && isSouth && isWest) {
             return true;
         }
 
@@ -46,50 +53,6 @@ function Collision(boxA, boxB) {
         return false;
     };
 
-
-    /*
-     * If the south face of boxB is overlapping the north face of boxA.
-     */
-    proto_._isNorthOverlap = function () {
-        if (this.boxA.y + this.boxA.height >= this.boxB.y) {
-            return true;
-        }
-
-        return false;
-    };
-
-    /*
-     * If the west face of boxB is overlapping the east face of boxA.
-     */
-    proto_._isEastOverlap = function () {
-        if (this.boxA.x + this.boxA.width >= this.boxB.x) {
-            return true;
-        }
-
-        return false;
-    };
-
-    /*
-     * If the north face of boxB is overlapping the south face of boxA.
-     */
-    proto_._isSouthOverlap = function () {
-        if (this.boxA.y <= this.boxB.y + this.boxB.height) {
-            return true;
-        }
-        
-        return false;
-    };
-
-    /*
-     * If the east face of boxB is overlapping the west face of boxA.
-     */
-    proto_._isWestOverlap = function () {
-        if (this.boxA.x <= this.boxB.x + this.boxB.width) {
-            return true;
-        }
-
-        return false;
-    };
 
     /*
      * Gets maximum coords of a box.
