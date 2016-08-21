@@ -31,6 +31,38 @@ function Collision(boxA, boxB) {
     };
 
     /*
+     * Returns true if boxB is colliding with boxA through its north face.
+     */
+    proto_.isNorth = function () {
+        var isPrevious = this.boxB.prevY <= this.boxA.y + this.boxA.height;
+        var isNow = this.boxB.y <= this.boxA.y + this.boxA.height;
+
+        console.log(!isPrevious, this.boxB.prevY, this.boxB.height, this.boxA.y);
+        return !isPrevious && isNow && this.isTouching();
+    };
+
+    /*
+     * Returns true if boxB is colliding with boxA through its east face.
+     */
+    proto_.isEast = function () {
+
+    };
+
+    /*
+     * Returns true if boxB is colliding with boxA through its south face.
+     */
+    proto_.isSouth = function () {
+
+    };
+
+    /*
+     * Returns true if boxB is colliding with boxA through its west face.
+     */
+    proto_.isWest = function () {
+
+    };
+
+    /*
      * Returns true if boxB is inside boxA.
      */
     proto_.isInside = function () {

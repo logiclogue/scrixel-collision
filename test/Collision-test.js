@@ -58,27 +58,61 @@ describe('Collision', function () {
             assert.equal(collision.isTouching(), true);
         });
     });
+
+    boxA.x = 0;
+    boxA.y = 0;
     
     describe('#isNorth()', function () {
-        
-    });
+        it('should return true when boxB is entering through the north face',
+        function () {
+            boxB.x = boxB.x = 0;
+            boxB.y = 10;
+            boxB.y = boxA.y + boxA.height - 1;
 
-    describe('#isWest()', function () {
-
-    });
-    
-    describe('#isSouth()', function () {
-
+            assert.equal(collision.isNorth(), true);
+        });
     });
 
     describe('#isEast()', function () {
+        it('should return true when boxB is entering through the east face',
+        function () {
+            boxB.x = 10;
+            boxB.y = 0;
+            boxB.x = boxA.width - 1;
 
+            assert.equal(collision.isEast(), true);
+        });
+    });
+
+    
+    describe('#isSouth()', function () {
+        it('should return true when boxB is entering through the south face',
+        function () {
+            boxB.x = -10;
+            boxB.y = boxB.y = 0;
+            boxB.x = -1;
+
+            assert.equal(collision.isSouth(), true);
+        });
+    });
+
+    describe('#isWest()', function () {
+        it('should return true when boxB is entering through the west face',
+        function () {
+            boxB.x = -10;
+            boxB.y = boxB.y = 0;
+            boxB.x = 1;
+
+            assert.equal(collision.isWest(), true);
+        });
     });
 
     describe('#isInside()', function () {
         it('should return false when boxes are touching', function () {
             boxA.x = -1;
             boxA.y = -1;
+            boxB.x = 0;
+            boxB.y = 0;
 
             assert.equal(collision.isInside(), false);
         });
