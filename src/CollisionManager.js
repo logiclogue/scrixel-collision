@@ -1,4 +1,5 @@
 var Group = require('./Group');
+var Collision = require('./Collision');
 
 
 function CollisionManager(groupA, groupB) {
@@ -18,6 +19,20 @@ function CollisionManager(groupA, groupB) {
     this.onSouth = function () {};
     this.onWest = function () {};
     this.onInside = function () {};
+
+    this._collision = new Collision();
 }
+
+(function (proto_) {
+
+    /*
+     * Tests all of the boxes in each group, against eachother.
+     * Executes necessary callbacks.
+     */
+    proto_.test = function () {
+
+    };
+
+}(CollisionManager.prototype));
 
 module.exports = CollisionManager;

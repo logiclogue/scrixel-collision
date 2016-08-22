@@ -29,4 +29,38 @@ describe('CollisionManager', function () {
             assert.throws(CollisionManager, ReferenceError);
         });
     });
+
+    describe('#test()', function () {
+        collision.onTouch = onTouch;
+        collision.onNorth = onNorth;
+        collision.onEast = onEast;
+        collision.onSouth = onSouth;
+        collision.onWest = onWest;
+        collision.onInside = onInside;
+    });
+
+
+    function onTouch() {
+        console.log('touching');
+    }
+
+    function onNorth() {
+        console.log('north');
+    }
+
+    function onEast() {
+        console.log('east');
+    }
+
+    function onSouth() {
+        console.log('south');
+    }
+
+    function onWest() {
+        console.log('west');
+    }
+
+    function onInside() {
+        console.log('inside');
+    }
 });
