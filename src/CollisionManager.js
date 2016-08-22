@@ -30,8 +30,25 @@ function CollisionManager(groupA, groupB) {
      * Executes necessary callbacks.
      */
     proto_.test = function () {
-
+        
     };
+    
+
+    proto_._forEachBoxA = function (callback) {
+        this.groupA.boxes.forEach(callback);
+    };
+
+    proto_._forEachBoxB = function (callback) {
+        this.groupB.boxes.forEach(callback);
+    };
+
+    proto_._forEachBox = function (callback) {
+        this.groupA.boxes.forEach(function (boxA) {
+            this.groupB.boxes.forEach(function (boxB) {
+                
+            }.bind(this));
+        }.bind(this));
+    }
 
 }(CollisionManager.prototype));
 
