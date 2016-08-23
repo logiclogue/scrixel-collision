@@ -62,14 +62,10 @@ function CollisionManager(groupA, groupB) {
     };
     
 
-    proto_._forEachBoxA = function (callback) {
-        this.groupA.boxes.forEach(callback);
-    };
-
-    proto_._forEachBoxB = function (callback) {
-        this.groupB.boxes.forEach(callback);
-    };
-
+    /*
+     * Compares each box to eachother.
+     * Calls callback with box from A and B.
+     */ 
     proto_._forEachBox = function (callback) {
         this.groupA.boxes.forEach(function (boxA) {
             this.groupB.boxes.forEach(function (boxB) {
