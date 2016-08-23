@@ -1,4 +1,5 @@
 var Group = require('./Group');
+var Box = require('./Box');
 var Collision = require('./Collision');
 
 
@@ -20,7 +21,7 @@ function CollisionManager(groupA, groupB) {
     this.onWest = function () {};
     this.onInside = function () {};
 
-    this._collision = new Collision();
+    this._collision = new Collision(new Box(), new Box());
 }
 
 (function (proto_) {
@@ -30,7 +31,34 @@ function CollisionManager(groupA, groupB) {
      * Executes necessary callbacks.
      */
     proto_.test = function () {
-        
+        this._forEachBox(function (boxA, boxB) {
+            collision.boxA = boxA;
+            collision.boxB = boxB;
+
+            if (collision.isTouching()) {
+                this.onTouch();
+            }
+
+            if (collision.isNorth()) {
+                this.onNorth();
+            }
+
+            if (collision.isEast()) {
+                this.onEast();
+            }
+
+            if (collision.isSouth()) {
+                this.onSouth();
+            }
+
+            if (collision.isWest()) {
+                this.onWest();
+            }
+
+            if (collision.isInside()) {
+                this.onInside();
+            }
+        });
     };
     
 
@@ -45,7 +73,7 @@ function CollisionManager(groupA, groupB) {
     proto_._forEachBox = function (callback) {
         this.groupA.boxes.forEach(function (boxA) {
             this.groupB.boxes.forEach(function (boxB) {
-                
+                callback(boxA, boxB);
             }.bind(this));
         }.bind(this));
     }

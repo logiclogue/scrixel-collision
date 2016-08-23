@@ -9,7 +9,7 @@ describe('CollisionManager', function () {
     var boxB = new Box(3, 4);
     var groupA = new Group();
     var groupB = new Group();
-    var collision;
+    var collision = new CollisionManager(groupA, groupB);
 
     describe('#constructor(Group, Group)', function () {
         it('should set groupA and groupB', function () {
@@ -41,26 +41,26 @@ describe('CollisionManager', function () {
 
 
     function onTouch() {
-        console.log('touching');
+        return 'touching';
     }
 
     function onNorth() {
-        console.log('north');
+        return 'north';
     }
 
     function onEast() {
-        console.log('east');
+        return 'east';
     }
 
     function onSouth() {
-        console.log('south');
+        return 'south';
     }
 
     function onWest() {
-        console.log('west');
+        return 'west';
     }
 
     function onInside() {
-        console.log('inside');
+        return 'inside';
     }
 });
