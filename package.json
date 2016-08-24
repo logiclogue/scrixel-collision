@@ -1,6 +1,6 @@
 {
   "name": "scrixel-collision",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Collision detection library for game development",
   "main": "index.js",
   "scripts": {
