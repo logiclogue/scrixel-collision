@@ -48,6 +48,17 @@ collision.test();
 
 It will console.log if a box from `groupA` is colliding with `groupB`.
 
+Full list of callback methods include:
+
+```
+onTouch()
+onNorth()
+onEast()
+onSouth()
+onWest()
+onInside()
+```
+
 ## Tests
 
 In `scrixel-collision` root directory, run:
@@ -63,4 +74,4 @@ Jordan Lord
 
 ## License
 
-GPLv3. See [LICENSE.md](LICENSE.md).
+GPLv3. See [LICENSE.txt](LICENSE.txt).
