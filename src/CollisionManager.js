@@ -38,27 +38,27 @@ function CollisionManager(groupA, groupB) {
             collision.boxB = boxB;
 
             if (collision.isTouching()) {
-                this.onTouch();
+                this.onTouch(boxA, boxB);
             }
 
             if (collision.isNorth()) {
-                this.onNorth();
+                this.onNorth(boxA, boxB);
             }
 
             if (collision.isEast()) {
-                this.onEast();
+                this.onEast(boxA, boxB);
             }
 
             if (collision.isSouth()) {
-                this.onSouth();
+                this.onSouth(boxA, boxB);
             }
 
             if (collision.isWest()) {
-                this.onWest();
+                this.onWest(boxA, boxB);
             }
 
             if (collision.isInside()) {
-                this.onInside();
+                this.onInside(boxA, boxB);
             }
         });
     };
