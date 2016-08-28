@@ -60,7 +60,7 @@ function CollisionManager(groupA, groupB) {
             if (collision.isInside()) {
                 this.onInside(boxA, boxB);
             }
-        });
+        }.bind(this));
     };
     
 
