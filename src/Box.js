@@ -7,44 +7,38 @@ function Box(width, height) {
     this.height = height;
 }
 
-(function (static_, proto_, def) {
+Box.prototype = {
+    set x(x) {
+        var oldX = this._x;
 
-    def('x', {
-        set: function (x) {
-            var oldX = this._x;
+        this._x = x;
 
-            this._x = x;
-
-            if (this.prevX === null) {
-                this.prevX = x;
-            }
-            else {
-                this.prevX = oldX;
-            }
-        },
-        get: function () {
-            return this._x;
+        if (this.prevX === null) {
+            this.prevX = x;
         }
-    });
-
-    def('y', {
-        set: function (y) {
-            var oldY = this._y;
-
-            this._y = y;
-
-            if (this.prevY === null) {
-                this.prevY = y;
-            }
-            else {
-                this.prevY = oldY
-            }
-        },
-        get: function () {
-            return this._y;
+        else {
+            this.prevX = oldX;
         }
-    });
+    },
+    get x() {
+        return this._x;
+    },
 
-}(Box, Box.prototype, Object.defineProperty.bind({}, Box.prototype)));
+    set y(y) {
+        var oldY = this._y;
+
+        this._y = y;
+
+        if (this.prevY === null) {
+            this.prevY = y;
+        }
+        else {
+            this.prevY = oldY
+        }
+    },
+    get y() {
+        return this._y;
+    }
+};
 
 module.exports = Box;
