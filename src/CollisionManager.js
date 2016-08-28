@@ -31,6 +31,8 @@ function CollisionManager(groupA, groupB) {
      * Executes necessary callbacks.
      */
     proto_.test = function () {
+        var collision = this._collision;
+
         this._forEachBox(function (boxA, boxB) {
             collision.boxA = boxA;
             collision.boxB = boxB;
