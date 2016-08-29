@@ -14,12 +14,7 @@ function CollisionManager(groupA, groupB) {
     this.groupA = groupA;
     this.groupB = groupB;
 
-    this.onTouch = function () {};
-    this.onNorth = function () {};
-    this.onEast = function () {};
-    this.onSouth = function () {};
-    this.onWest = function () {};
-    this.onInside = function () {};
+ 
 
     this._collision = new Collision(new Box(), new Box());
 }
@@ -62,7 +57,16 @@ function CollisionManager(groupA, groupB) {
             }
         }.bind(this));
     };
-    
+
+    /*
+     * User defined methods.
+     */
+    proto_.onTouch = function () {};
+    proto_.onNorth = function () {};
+    proto_.onEast = function () {};
+    proto_.onSouth = function () {};
+    proto_.onWest = function () {};
+    proto_.onInside = function () {};
 
     /*
      * Compares each box to eachother.
